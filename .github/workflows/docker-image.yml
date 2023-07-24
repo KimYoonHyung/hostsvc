@@ -24,3 +24,19 @@ jobs:
       with:
         push: true
         tags: kongkomido/hostservice:${{ github.sha }}
+  
+  updateYaml:
+    runs-on: ubuntu-latest
+    steps:
+    - name: 1. Checkout
+      uses: actions/checkout@v3
+      with:
+        repository: 'kongkomido/hostsvc-cd'
+        token: ${{ secrets.GITHAB_TOKEN }}
+    - name: 2. Change Docker Tag
+      run: |
+        sed "s/image: kongkomido\/node-app:.*/images: kongkomido\/node-app:${{ github.sha }}/g"
+        git config --global user.email "kongkomido@naver.com"
+        git config --global user.name "kongkomido"
+        git commit -am "triggered by github action"
+        git push origin main
