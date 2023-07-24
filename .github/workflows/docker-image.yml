@@ -27,6 +27,7 @@ jobs:
   
   updateYaml:
     runs-on: ubuntu-latest
+    needs: buildImage #업데이트yaml이 앞에가 성공해야 실행하도록
     steps:
     - name: 1. Checkout
       uses: actions/checkout@v3
