@@ -32,7 +32,7 @@ jobs:
     - name: 1. Checkout
       uses: actions/checkout@v3
       with:
-        repository: 'kongkomido/hostsvc-cd'
+        repository: 'KimYoonHyung/hostsvc-cd'
         token: ${{ secrets.GITHAB_TOKEN }}
     - name: 2. Change Docker Tag
       run: |
