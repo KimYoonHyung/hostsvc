@@ -38,6 +38,6 @@ jobs:
       run: |
         sed -i "s/image: kongkomido\/node-app:.*/images: kongkomido\/node-app:${{ github.sha }}/g" hostservice-deploy.yaml
         git config --global user.email "kongkomido@naver.com"
-        git config --global user.name "kongkomido"
+        git config --global user.name "KimYoonHyung"
         git commit -am "triggered by github action"
         git push origin main
